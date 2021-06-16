@@ -49,7 +49,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class CalculatorTest {
+public class study.CalculatorTest {
     Calculator cal;
 
     @BeforeEach
@@ -97,7 +97,7 @@ public class CalculatorTest {
 - 다음과 같은 JUnit 테스트를 실행할 경우 실행 순서는 어떻게 될까?
 
 ```java
-public class CalculatorTest {
+public class study.CalculatorTest {
     @Before
     public void setup() {
       System.out.println("setup");
