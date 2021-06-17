@@ -3,7 +3,7 @@ package Baseball;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.*;
 
 public class BallTest {
     Ball ball;
@@ -26,6 +26,14 @@ public class BallTest {
     @Test
     void strike() {
         assertThat(ball.play(new Ball(0, 4))).isEqualTo(BallStatus.STRIKE);
+    }
+
+    @Test
+    void ValidateBallNumber() {
+        assertThatExceptionOfType(OutOfBallNumberRangeException.class).isThrownBy(()-> {
+            new Ball(1, 10);
+        })
+                .withMessageContaining("between 1 and 9");
     }
 
 
