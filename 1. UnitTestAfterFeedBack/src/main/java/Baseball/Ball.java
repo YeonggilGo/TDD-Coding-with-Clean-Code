@@ -13,6 +13,7 @@ public class Ball {
     }
 
     public BallStatus play(Ball ball) {
+
         return BallStatus.NOTHING;
     }
 
