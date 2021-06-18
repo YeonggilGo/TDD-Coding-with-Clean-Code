@@ -32,8 +32,8 @@ public class BallsTest {
     @Test
     void play_3Strike() {
         PlayResult result = balls.play(new Balls(Arrays.asList(1, 2, 3)));
-        assertThat(result.getStrike()).isEqualTo(0);
-        assertThat(result.getBall()).isEqualTo(0);
+        assertThat(result.getStrike()).isEqualTo(3);
+        assertThat(result.isGameEnd()).isTrue();
     }
 
     @Test

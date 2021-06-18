@@ -21,6 +21,14 @@ public class Balls {
                 .filter(BallStatus::isNotNothing)
                 .findFirst()
                 .orElse(BallStatus.NOTHING);
+    }
 
+    public PlayResult play(Balls balls) {
+        PlayResult result = new PlayResult();
+        answers.stream()
+                .map(answer -> balls.play(answer))
+                .filter(BallStatus::isNotNothing)
+                .forEach(status -> result.report(status));
+        return result;
     }
 }
