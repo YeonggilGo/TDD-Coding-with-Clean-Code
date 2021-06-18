@@ -7,8 +7,12 @@ public class BallNumber {
     private int no;
 
     public BallNumber(int no) {
-        ValidateBallNumber(no);
-        this.no = no;
+        try {
+            ValidateBallNumber(no);
+            this.no = no;
+        } catch (OutOfBallNumberRangeException e){
+            System.out.println(e.getMessage());
+        }
     }
 
     public boolean ValidateBallNumber(int num) {

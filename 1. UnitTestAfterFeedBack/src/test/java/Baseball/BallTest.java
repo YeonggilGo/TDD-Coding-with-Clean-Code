@@ -3,6 +3,8 @@ package Baseball;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
 import static org.assertj.core.api.Assertions.*;
 
 public class BallTest {
@@ -35,6 +37,15 @@ public class BallTest {
         })
                 .withMessageContaining("between 1 and 9");
     }
+
+    @Test
+    void ValidateBalls() {
+        assertThatExceptionOfType(OutOfBallNumberRangeException.class).isThrownBy(()-> {
+            new Balls(Arrays.asList(1, 2, 10));
+        })
+                .withMessageContaining("between 1 and 9");
+    }
+
 
 
 }

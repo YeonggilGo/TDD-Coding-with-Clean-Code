@@ -50,4 +50,9 @@ public class BallsTest {
     void strike() {
         assertThat(balls.play(new Ball(0, 1))).isEqualTo(BallStatus.STRIKE);
     }
+
+    @Test
+    void ValidateBalls() {
+        assertThat(balls.ValidateBalls()).isTrue();
+    }
 }

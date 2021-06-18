@@ -31,4 +31,10 @@ public class Balls {
                 .forEach(status -> result.report(status));
         return result;
     }
+
+    public boolean ValidateBalls() {
+        return answers.stream()
+                .allMatch(answer -> answer.getBallNumber().ValidateBallNumber(answer.getBallNumber().getNo()))
+                && answers.size() == 3;
+    }
 }
