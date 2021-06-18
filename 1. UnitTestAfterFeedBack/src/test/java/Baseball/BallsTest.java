@@ -16,6 +16,27 @@ public class BallsTest {
     }
 
     @Test
+    void play_nothing() {
+        PlayResult result = balls.play(new Balls(Arrays.asList(4, 5, 6)));
+        assertThat(result.getStrike()).isEqualTo(0);
+        assertThat(result.getBall()).isEqualTo(0);
+    }
+
+    @Test
+    void play_1Strike_1Ball() {
+        PlayResult result = balls.play(new Balls(Arrays.asList(1, 4, 2)));
+        assertThat(result.getStrike()).isEqualTo(1);
+        assertThat(result.getBall()).isEqualTo(1);
+    }
+
+    @Test
+    void play_3Strike() {
+        PlayResult result = balls.play(new Balls(Arrays.asList(1, 2, 3)));
+        assertThat(result.getStrike()).isEqualTo(0);
+        assertThat(result.getBall()).isEqualTo(0);
+    }
+
+    @Test
     void nothing() {
         assertThat(balls.play(new Ball(1, 4))).isEqualTo(BallStatus.NOTHING);
     }
