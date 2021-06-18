@@ -32,20 +32,21 @@ public class BallTest {
 
     @Test
     void ValidateBallNumber() {
-        assertThatExceptionOfType(OutOfBallNumberRangeException.class).isThrownBy(()-> {
-            new Ball(1, 10);
+        assertThatExceptionOfType(OutOfBallNumberRangeException.class).isThrownBy(() -> {
+            new Ball(1, 10).getBallNumber().ValidateBallNumber();
         })
                 .withMessageContaining("between 1 and 9");
     }
 
     @Test
     void ValidateBalls() {
-        assertThatExceptionOfType(OutOfBallNumberRangeException.class).isThrownBy(()-> {
-            new Balls(Arrays.asList(1, 2, 10));
-        })
-                .withMessageContaining("between 1 and 9");
+        assertThat(new Balls(Arrays.asList(1, 2, 9)).ValidateBalls()).isTrue();
     }
 
+    @Test
+    void ValidateRandomBalls() {
+        assertThat(new Balls().ValidateBalls()).isTrue();
+    }
 
 
 }

@@ -7,12 +7,21 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class Balls {
     private List<Ball> answers;
 
-    public Balls(List<Integer> balls) {
+    public Balls() {
+        RandomNumbersGenerator generator = new RandomNumbersGenerator();
+        this.answers = mapBalls(generator.generateRandomNumbers());
+    }
+
+    public Balls(List<Integer> ballNumbers) {
+        this.answers = mapBalls(ballNumbers);
+    }
+
+    public List<Ball> mapBalls(List<Integer> ballNumbers) {
         List<Ball> tempBalls = new ArrayList<>();
         AtomicInteger i = new AtomicInteger();
-        balls.stream()
-                .forEach(ball -> tempBalls.add(new Ball(i.getAndIncrement(), ball)));
-        this.answers = tempBalls;
+        ballNumbers.stream()
+                .forEach(ballNumber -> tempBalls.add(new Ball(i.getAndIncrement(), ballNumber)));
+        return tempBalls;
     }
 
     public BallStatus play(Ball ball) {
@@ -34,7 +43,7 @@ public class Balls {
 
     public boolean ValidateBalls() {
         return answers.stream()
-                .allMatch(answer -> answer.getBallNumber().ValidateBallNumber(answer.getBallNumber().getNo()))
+                .allMatch(answer -> answer.getBallNumber().ValidateBallNumber())
                 && answers.size() == 3;
     }
 }

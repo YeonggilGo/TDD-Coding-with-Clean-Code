@@ -8,15 +8,15 @@ public class BallNumber {
 
     public BallNumber(int no) {
         try {
-            ValidateBallNumber(no);
             this.no = no;
+            ValidateBallNumber();
         } catch (OutOfBallNumberRangeException e){
             System.out.println(e.getMessage());
         }
     }
 
-    public boolean ValidateBallNumber(int num) {
-        if (num > 9 || num < 1) {
+    public boolean ValidateBallNumber() {
+        if (this.no > 9 || this.no < 1) {
             throw new OutOfBallNumberRangeException();
         }
         return true;
