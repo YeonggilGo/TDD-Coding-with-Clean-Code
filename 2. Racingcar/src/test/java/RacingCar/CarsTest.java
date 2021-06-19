@@ -18,7 +18,14 @@ public class CarsTest {
 
     @Test
     void randomlySelectCars() {
-        List<Car> selectedCars = cars.selectRandomly(2);
-        assertThat(selectedCars.size()).isEqualTo(2);
+        Cars selectedCars = cars.selectRandomly(2);
+        assertThat(selectedCars.getCars().size()).isEqualTo(2);
+    }
+
+    @Test
+    void driveSelectedCars() {
+        Cars selectedCars = cars.selectRandomly(2);
+        selectedCars.drive();
+        assertThat(selectedCars.checkMovingForward()).isTrue();
     }
 }

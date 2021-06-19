@@ -22,4 +22,8 @@ public class Car {
     public void drive() {
         this.position += 1;
     }
+
+    public boolean checkPositionEqualsOne(){
+        return position == 1;
+    }
 }

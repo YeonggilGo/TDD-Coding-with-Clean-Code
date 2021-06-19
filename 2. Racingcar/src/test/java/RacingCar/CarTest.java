@@ -23,6 +23,6 @@ public class CarTest {
     @Test
     void DriveCar() {
         car.drive();
-        assertThat(car.getPosition()).isEqualTo(1);
+        assertThat(car.checkPositionEqualsOne()).isTrue();
     }
 }
