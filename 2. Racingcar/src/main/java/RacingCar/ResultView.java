@@ -4,20 +4,21 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class ResultView {
-    public void printRoundResultView(Cars cars) {
+    public static void printRoundResultView(Cars cars) {
         for (Car car : cars.getCars()) {
             System.out.printf("%s : %s\n", car.getName(), repeat(car.getPosition(), "-"));
         }
         System.out.println("\n");
     }
 
-    public void printFinalResultView(Cars cars) {
+    public static void printFinalResultView(Cars cars) {
         List<Car> winnersList = cars.getWinners();
         String winnersNames = winnersList.stream()
                 .map(Car::getName)
                 .collect(Collectors.toList())
                 .toString();
-        System.out.println(winnersNames + "is the final winners!");
+        boolean winnerIsMultiple = winnersList.size() > 1;
+        System.out.printf("%s %s the final %s!!", winnersNames, winnerIsMultiple ? "are" : "is", winnerIsMultiple ? "winners" : "winner");
     }
 
     public static String repeat(int count, String with) {

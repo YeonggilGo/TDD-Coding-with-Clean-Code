@@ -37,8 +37,14 @@ public class Cars {
     }
 
     public void drive() {
-        for(Car car: cars) {
+        for (Car car : cars) {
             car.drive();
+        }
+    }
+
+    public void drive(List<Integer> selectedIndexOfCars) {
+        for (int index: selectedIndexOfCars){
+            cars.get(index).drive();
         }
     }
 
@@ -55,5 +61,10 @@ public class Cars {
         return cars.stream()
                 .filter(car -> car.getPosition() == farthestPosition)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public String toString() {
+        return cars.toString();
     }
 }

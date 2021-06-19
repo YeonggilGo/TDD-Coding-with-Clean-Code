@@ -1,7 +1,15 @@
 package RacingCar;
 
 public class InputView {
-    public void printInputView() {
-        System.out.println("경주할 자동차 이름을 입력하세요(이름은 쉼표(,)를 기준으로 구분).\n");
+    public static void printInputView() {
+        System.out.println("Enter the names of cars that participate in the race.(Names are separated by the comma(,)).\n");
+    }
+
+    public static void printInputView(Cars cars, int round) {
+        System.out.println(new StringBuilder()
+                .append("Enter the names of cars that participate in the race.(Names are separated by the comma(,)).\n")
+                .append(cars.toString()).append("\n")
+                .append("Enter the how many rounds to try\n")
+                .append(round).append("\n"));
     }
 }

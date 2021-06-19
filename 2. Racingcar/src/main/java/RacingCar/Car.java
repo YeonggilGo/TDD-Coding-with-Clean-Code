@@ -26,4 +26,9 @@ public class Car {
     public boolean checkPositionEqualsTwo(){
         return position == 2;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }
