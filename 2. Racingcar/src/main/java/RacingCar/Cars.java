@@ -4,11 +4,12 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class Cars {
-    private final List<Car> cars;
+    private List<Car> cars;
 
-    public Cars(List<String> names) {
+    public Cars(String names) {
+        List<String> namesList = Arrays.asList(names.split(","));
         List<Car> cars = new ArrayList<>();
-        for (String name: names){
+        for (String name: namesList){
             cars.add(new Car(name));
         }
         this.cars = cars;
