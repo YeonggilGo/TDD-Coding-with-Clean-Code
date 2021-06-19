@@ -13,14 +13,14 @@ public class StringAddCalculatorTest {
         assertThat(result).isEqualTo(0);
     }
 
-     @Test
+    @Test
     public void splitAndSum_one_number() throws Exception {
         int result = StringAddCalculator.splitAndSum("1");
         assertThat(result).isEqualTo(1);
     }
 
     @Test
-    public void splitAndSum_쉼표구분자() throws Exception {
+    public void splitAndSum_comma_delimiter() throws Exception {
         int result = StringAddCalculator.splitAndSum("1,2");
         assertThat(result).isEqualTo(3);
     }
