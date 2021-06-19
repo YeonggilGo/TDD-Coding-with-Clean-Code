@@ -44,7 +44,7 @@ public class Cars {
 
     public boolean checkMovingForward() {
         return cars.stream()
-                .map(car -> car.checkPositionEqualsOne())
+                .map(car -> car.checkPositionEqualsTwo())
                 .allMatch(Boolean::booleanValue);
     }
 

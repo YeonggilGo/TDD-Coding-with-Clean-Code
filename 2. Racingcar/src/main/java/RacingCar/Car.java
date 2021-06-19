@@ -10,7 +10,7 @@ public class Car {
     public Car(String name) {
         this.name = name;
         ValidateCarName();
-        this.position = 0;
+        this.position = 1;
     }
 
     public void ValidateCarName() {
@@ -23,7 +23,7 @@ public class Car {
         this.position += 1;
     }
 
-    public boolean checkPositionEqualsOne(){
-        return position == 1;
+    public boolean checkPositionEqualsTwo(){
+        return position == 2;
     }
 }
