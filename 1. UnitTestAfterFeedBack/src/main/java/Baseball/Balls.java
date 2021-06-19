@@ -33,11 +33,13 @@ public class Balls {
     }
 
     public PlayResult play(Balls balls) {
+        System.out.println("숫자를 입력하세요 : " + balls.toString());
         PlayResult result = new PlayResult();
         answers.stream()
                 .map(answer -> balls.play(answer))
                 .filter(BallStatus::isNotNothing)
                 .forEach(status -> result.report(status));
+        System.out.println(result.toString());
         return result;
     }
 
@@ -45,5 +47,12 @@ public class Balls {
         return answers.stream()
                 .allMatch(answer -> answer.getBallNumber().ValidateBallNumber())
                 && answers.size() == 3;
+    }
+
+    @Override
+    public String toString() {
+        return "Balls{" +
+                "answers=" + answers.toString() +
+                '}';
     }
 }

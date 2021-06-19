@@ -15,4 +15,12 @@ public class PlayResult {
         if (status == BallStatus.STRIKE) this.strike += 1;
         if (status == BallStatus.BALL) this.ball += 1;
     }
+
+    @Override
+    public String toString() {
+        return "PlayResult{" +
+                "strike=" + strike +
+                ", ball=" + ball +
+                '}';
+    }
 }

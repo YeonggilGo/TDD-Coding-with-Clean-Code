@@ -31,4 +31,11 @@ public class BallNumber {
 
         return no == that.no;
     }
+
+    @Override
+    public String toString() {
+        return "BallNumber{" +
+                "no=" + no +
+                '}';
+    }
 }

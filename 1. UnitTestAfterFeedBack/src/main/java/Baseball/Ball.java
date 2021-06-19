@@ -37,4 +37,12 @@ public class Ball {
         if (position != ball.position) return false;
         return ballNumber != null ? ballNumber.equals(ball.ballNumber) : ball.ballNumber == null;
     }
+
+    @Override
+    public String toString() {
+        return "Ball{" +
+                "position=" + position +
+                ", ballNumber=" + ballNumber.toString() +
+                '}';
+    }
 }
