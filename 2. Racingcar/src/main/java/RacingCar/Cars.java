@@ -22,6 +22,10 @@ public class Cars {
         this.cars = cars;
     }
 
+    public Cars() {
+        this.cars = new ArrayList<>();
+    }
+
     public Cars selectRandomly(int numberOfCarsToSelect) {
         Random random = new Random();
         Set<Car> carSet = new HashSet<>();
@@ -42,5 +46,14 @@ public class Cars {
         return cars.stream()
                 .map(car -> car.checkPositionEqualsOne())
                 .allMatch(Boolean::booleanValue);
+    }
+
+    public List<Car> getWinners() {
+        int farthestPosition = cars.stream()
+                .map(Car::getPosition)
+                .reduce(0, (fir, sec) -> fir > sec ? fir : sec);
+        return cars.stream()
+                .filter(car -> car.getPosition() == farthestPosition)
+                .collect(Collectors.toList());
     }
 }
